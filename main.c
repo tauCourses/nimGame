@@ -5,14 +5,16 @@ typedef void (*stepFunction)(int *arr, int numOfHeaps, int turn); //function poi
 
 int main()
 {
-	stepFunction stepFunctionsArr[] = {computerStep, userStep} ;
-	
+	stepFunction stepFunctionsArr[] = {userStep, computerStep}; //order matters! second function start!
+
 	int arr[32];
 	int numOfHeaps = init(arr);
-	int turn == 0;
-	
-	while(!isGameEnded())
-		stepFunctionsArr[(turn++)%2](arr,numOfHeaps,turn);
+	int turn = 1;
 
+	while(!isGameEnded(arr, numOfHeaps))
+	{
+		stepFunctionsArr[turn%2](arr,numOfHeaps,turn);
+		turn++;
+	}
 	printEnd(turn);
 }
