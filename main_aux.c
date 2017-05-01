@@ -1,6 +1,6 @@
 #include "main_aux.h"
 
-int init(int *arr)
+int init(int *heaps)
 {
 	int numOfHeaps;
 	printf("Enter the number of heaps\n");
@@ -20,13 +20,13 @@ int init(int *arr)
 	fflush(stdout);
 	for (int i=0; i < numOfHeaps; i++)
 	{
-		if( scanf("%d", &arr[i]) != 1 )
+		if( scanf("%d", &heaps[i]) != 1 )
 		{
 			printf("Error: undefined error.\n");
 			fflush(stdout);
 			return -1;
 		}
-		if (arr[i] < 1)
+		if (heaps[i] < 1)
 		{
 			printf("Error: the size of heap %d should be positive.\n", i+1);
 			fflush(stdout);
@@ -55,7 +55,7 @@ void startTurnPrint(int *arr, int numOfHeaps, int turn)
 
 void printGame(int *arr, int numOfHeaps)
 {
-	for(int i = getMaximumHeapSize(arr,numOfHeaps); i>=0; i--)
+	for(int i = getMaximumHeapSize(arr,numOfHeaps) - 1; i>=0; i--)
 	{
 		for(int j=0;j<numOfHeaps;j++)
 		{

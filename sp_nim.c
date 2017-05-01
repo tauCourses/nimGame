@@ -1,34 +1,53 @@
 #include "sp_nim.h"
 
-int isGameEnded(int *arr, int numOfHeaps)
+
+
+int isGameEnded(int *heaps, int numOfHeaps)
 {
 	for(int i=0; i<numOfHeaps;i++)
-		if(arr[i] > 0)
+		if(heaps[i] > 0)
 			return 0;
 	return 1;
 }
 
-void userTurn(int *arr, int numOfHeaps, int turn)
+void userTurn(int *heaps, int numOfHeaps, int turn)
 {
 	int selectedHeap, amount;
-	startTurnPrint(arr, numOfHeaps,turn);
-	printGame(arr, numOfHeaps);
+	startTurnPrint(heaps, numOfHeaps,turn);
+	printGame(heaps, numOfHeaps);
 	printf("Your turn: please enter the heap index and the number of removed objects.\n");
 	int readValue = scanf("%d%d", &selectedHeap, &amount);
-	while(readValue != 2 || !checkHeapSelection(arr,numOfHeaps,selectedHeap,amount))
+	while(readValue != 2 || !checkHeapSelection(heaps,numOfHeaps,selectedHeap,amount))
 	{
 		printf("Error: Invalid input.\nPlease enter again the heap index and the number of removed objects.\n");
 		readValue = scanf("%d%d", &selectedHeap, &amount);
 	}
 	printf("You take %d objects from heap %d.\n", amount, selectedHeap);
-	arr[selectedHeap-1] -= amount;
+	heaps[selectedHeap-1] -= amount;
 }
 
-void computerTurn(int *arr, int numOfHeaps, int turn)
+void computerTurn(int *heaps, int numOfHeaps, int turn)
 {
-	printf("computer step,  buzz!!! %d\n", turn);
-	arr[0] = numOfHeaps;
-	arr[0] = 7;
+	int nimSum = 0, currentIndex = 0, objectsRemoved = 0;
+
+	startTurnPrint(heaps, numOfHeaps,turn);
+	for (int i = 0; i < numOfHeaps; i++)
+		nimSum ^= heaps[i];
+
+	if (nimSum != 0)
+	{
+		while ((heaps[currentIndex]^nimSum) >= heaps[currentIndex]) //if cuurent heap is not a winning heap
+			currentIndex++;
+		objectsRemoved = heaps[currentIndex] - (heaps[currentIndex]^nimSum);
+	}
+	else //if there is no winning heap
+	{
+		while (heaps[currentIndex] < 1)
+				currentIndex++;
+		objectsRemoved = 1;
+	}
+	heaps[currentIndex] -= objectsRemoved; //remove of the objects by computer
+	printf("Computer takes %d objects from heap %d.\n", objectsRemoved, currentIndex+1);
 }
 
 int checkHeapSelection(int *heaps, int numOfHeaps, int selectedHeap, int amouont)

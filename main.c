@@ -1,16 +1,17 @@
 #include "main_aux.h"
 #include "sp_nim.h"
 #include <stdio.h>
-//#include "SPBufferdet.h"
+#include "SPBufferset.h"
+
 
 int main()
 {
-	//SP_BUFF_SET();
-	int heaps[32];
-	int numOfHeaps = init(heaps);
+	SP_BUFF_SET();
+	int heaps[32], turn = 1, numOfHeaps;
+	
+	numOfHeaps = init(heaps);
 	if (numOfHeaps == -1)
 		return -1;
-	int turn = 1;
 	
 	while(!isGameEnded(heaps, numOfHeaps))
 	{
@@ -19,5 +20,6 @@ int main()
 		else
 			userTurn(heaps,numOfHeaps,turn);
 	}
+
 	printEnd(turn);
 }
