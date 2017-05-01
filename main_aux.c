@@ -7,7 +7,7 @@ int init(int *heaps)
 	fflush(stdout);
 	if(scanf("%d", &numOfHeaps) != 1)
 	{
-		printf("Error: undefined error.\n");
+		printf("Error: the number of heaps must be between 1 and 32.\n");
 		fflush(stdout);
 		return -1;
 	}
@@ -20,9 +20,10 @@ int init(int *heaps)
 	fflush(stdout);
 	for (int i=0; i < numOfHeaps; i++)
 	{
+		fflush(stdout);
 		if( scanf("%d", &heaps[i]) != 1 )
 		{
-			printf("Error: undefined error.\n");
+			printf("Error: the size of heap %d should be positive.\n", i+1);
 			fflush(stdout);
 			return -1;
 		}
@@ -43,6 +44,7 @@ void printEnd(int turn)
 		printf("You win!\n");
 	else
 		printf("Computer wins!\n");
+	fflush(stdout);
 }
 
 void startTurnPrint(int *heaps, int numOfHeaps, int turn)
@@ -51,6 +53,7 @@ void startTurnPrint(int *heaps, int numOfHeaps, int turn)
 	for(int i=0;i<numOfHeaps;i++)
 		printf(" h%d=%d", i+1, heaps[i]);
 	printf(".\n");
+	fflush(stdout);
 }
 
 void printGame(int *heaps, int numOfHeaps)
