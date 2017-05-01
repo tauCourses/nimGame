@@ -15,13 +15,10 @@ int main()
 		return -1;
 	int turn = 1;
 
-	arr[0] = 3;
-	arr[1] = 5;
-	arr[2] = 2;
-	arr[3] = 0;
-	arr[4] = 5;
-	numOfHeaps = 6;
-	userStep(arr,numOfHeaps,4);/*
+	userStep(arr,numOfHeaps,4);
+	userStep(arr,numOfHeaps,5);
+	userStep(arr,numOfHeaps,6);/*
+	
 	while(!isGameEnded(arr, numOfHeaps))
 	{
 		stepFunctionsArr[turn%2](arr,numOfHeaps,turn);
