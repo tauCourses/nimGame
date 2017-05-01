@@ -3,7 +3,10 @@
 
 int isGameEnded(int *arr, int numOfHeaps)
 {
-	return arr[0] == numOfHeaps;
+	for(int i=0; i<numOfHeaps;i++)
+		if(arr[i] > 0)
+			return 0;
+	return 1;
 }
 void userStep(int *arr, int numOfHeaps, int turn)
 {
