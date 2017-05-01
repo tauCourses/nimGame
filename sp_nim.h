@@ -5,9 +5,9 @@
 #include "main_aux.h"
 
 
-int isGameEnded(int *arr, int numOfHeaps);
-void userTurn(int *arr, int numOfHeaps, int turn);
-void computerTurn(int *arr, int numOfHeaps, int turn);
+int isGameEnded(int *heaps, int numOfHeaps);
+void userTurn(int *heaps, int numOfHeaps, int turn);
+void computerTurn(int *heaps, int numOfHeaps, int turn);
 int checkHeapSelection(int *heaps, int numOfHeaps, int selectedHeap, int amouont);
 
 #endif
