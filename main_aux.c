@@ -45,21 +45,22 @@ void printEnd(int turn)
 		printf("Computer wins!\n");
 }
 
-void startTurnPrint(int *arr, int numOfHeaps, int turn)
+void startTurnPrint(int *heaps, int numOfHeaps, int turn)
 {
 	printf("In turn %d heap sizes are:", turn);
 	for(int i=0;i<numOfHeaps;i++)
-		printf(" h%d=%d", i+1, arr[i]);
+		printf(" h%d=%d", i+1, heaps[i]);
 	printf(".\n");
 }
 
-void printGame(int *arr, int numOfHeaps)
+void printGame(int *heaps, int numOfHeaps)
 {
-	for(int i = getMaximumHeapSize(arr,numOfHeaps)-1; i>=0; i--)
+
+	for(int i = getMaximumHeapSize(heaps,numOfHeaps) - 1; i>=0; i--)
 	{
 		for(int j=0;j<numOfHeaps;j++)
 		{
-			if(arr[j] > i)
+			if(heaps[j] > i)
 				printf("*");
 			if(j<numOfHeaps-1)
 				printf("\t");
@@ -68,12 +69,12 @@ void printGame(int *arr, int numOfHeaps)
 	}
 }
 
-int getMaximumHeapSize(int *arr, int numOfHeaps)
+int getMaximumHeapSize(int *heaps, int numOfHeaps)
 {
-	int max = arr[0];
+	int max = heaps[0];
 	for(int i=0; i<numOfHeaps;i++)
-		if(arr[i]>max)
-			max = arr[i];
+		if(heaps[i]>max)
+			max = heaps[i];
 		
 	return max;
 }

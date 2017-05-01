@@ -3,9 +3,9 @@
 
 #include <stdio.h>
 
-int init(int *arr);
+int init(int *heaps);
 void printEnd(int turn);
-void startTurnPrint(int *arr, int numOfHeaps, int turn);
-void printGame(int *arr, int numOfHeaps);
-int getMaximumHeapSize(int *arr, int numOfHeaps);
+void startTurnPrint(int *heaps, int numOfHeaps, int turn);
+void printGame(int *heaps, int numOfHeaps);
+int getMaximumHeapSize(int *heaps, int numOfHeaps);
 #endif
