@@ -7,22 +7,22 @@ typedef void (*stepFunction)(int *heaps, int numOfHeaps, int turn); //function p
 
 int main()
 {
-	//stepFunction stepFunctionsArr[] = {userStep, computerStep}; //order matters! second function start!
-	SP_BUFF_SET();
+	stepFunction stepFunctionsArr[] = {userStep, computerStep}; //order matters! second function start!
+	//SP_BUFF_SET();
 	int heaps[32];
 	int numOfHeaps = init(heaps);
 	if (numOfHeaps == -1)
 		return -1;
 	int turn = 1;
 
-	userStep(heaps,numOfHeaps,4);
-	userStep(heaps,numOfHeaps,5);
-	userStep(heaps,numOfHeaps,6);/*
+//	userStep(heaps,numOfHeaps,4);
+//	userStep(heaps,numOfHeaps,5);
+//	userStep(heaps,numOfHeaps,6);
 	
 	while(!isGameEnded(heaps, numOfHeaps))
 	{
 		stepFunctionsArr[turn%2](heaps,numOfHeaps,turn);
 		turn++;
-	}*/
+	}
 	printEnd(turn);
 }

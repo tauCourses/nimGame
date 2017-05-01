@@ -39,7 +39,7 @@ void computerStep(int *heaps, int numOfHeaps, int turn)
 	{
 		while ((heaps[currentIndex]^nimSum) >= heaps[currentIndex]) //if cuurent heap is not a winning heap
 			currentIndex++;
-		objectsRemoved = heaps[currentIndex] - heaps[currentIndex]^nimSum;
+		objectsRemoved = (heaps[currentIndex] - (heaps[currentIndex]^nimSum));
 	}
 	else //if there is no winning heap
 	{
@@ -48,7 +48,7 @@ void computerStep(int *heaps, int numOfHeaps, int turn)
 		objectsRemoved = 1;
 	}
 	heaps[currentIndex] -= objectsRemoved; //remove of the objects by computer
-	printf("Computer takes %d objects from heap %d.", objectsRemoved, currentIndex+1);
+	printf("Computer takes %d objects from heap %d.\n", objectsRemoved, currentIndex+1);
 }
 int checkHeapSelection(int *heaps, int numOfHeaps, int selectedHeap, int amouont)
 {
