@@ -7,7 +7,7 @@
 int main()
 {
 	//SP_BUFF_SET();
-	int heaps[32], turn = 1, numOfHeaps;
+	int heaps[32], turn = 0, numOfHeaps;
 	
 	numOfHeaps = init(heaps);
 	if (numOfHeaps == -1)
@@ -16,9 +16,9 @@ int main()
 	while(!isGameEnded(heaps, numOfHeaps))
 	{
 		if(turn++ % 2)
-			computerTurn(heaps,numOfHeaps,turn);
-		else
 			userTurn(heaps,numOfHeaps,turn);
+		else
+			computerTurn(heaps,numOfHeaps,turn);
 	}
 
 	printEnd(turn);

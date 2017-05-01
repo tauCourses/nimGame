@@ -3,7 +3,7 @@
 int init(int *heaps)
 {
 	int numOfHeaps;
-	printf("Enter the number of heaps\n");
+	printf("Enter the number of heaps:\n");
 	fflush(stdout);
 	if(scanf("%d", &numOfHeaps) != 1)
 	{
@@ -40,9 +40,9 @@ int init(int *heaps)
 void printEnd(int turn)
 {
 	if(turn%2)
-		printf("You win!\n");
-	else
 		printf("Computer wins!\n");
+	else
+		printf("You win!\n");
 }
 
 void startTurnPrint(int *heaps, int numOfHeaps, int turn)
@@ -62,6 +62,8 @@ void printGame(int *heaps, int numOfHeaps)
 		{
 			if(heaps[j] > i)
 				printf("*");
+			else
+				printf(" ");
 			if(j<numOfHeaps-1)
 				printf("\t");
 		}
