@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include "SPBufferset.h"
 
-typedef void (*stepFunction)(int *arr, int numOfHeaps, int turn); //function pointer definition
+typedef void (*stepFunction)(int *heaps, int numOfHeaps, int turn); //function pointer definition
 
 int main()
 {
@@ -15,16 +15,13 @@ int main()
 		return -1;
 	int turn = 1;
 
-	heaps[0] = 3;
-	heaps[1] = 5;
-	heaps[2] = 2;
-	heaps[3] = 0;
-	heaps[4] = 5;
-	numOfHeaps = 6;
-	userStep(heaps,numOfHeaps,4);/*
-	while(!isGameEnded(arr, numOfHeaps))
+	userStep(heaps,numOfHeaps,4);
+	userStep(heaps,numOfHeaps,5);
+	userStep(heaps,numOfHeaps,6);/*
+	
+	while(!isGameEnded(heaps, numOfHeaps))
 	{
-		stepFunctionsArr[turn%2](arr,numOfHeaps,turn);
+		stepFunctionsArr[turn%2](heaps,numOfHeaps,turn);
 		turn++;
 	}*/
 	printEnd(turn);

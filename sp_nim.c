@@ -3,12 +3,25 @@
 
 int isGameEnded(int *heaps, int numOfHeaps)
 {
-	return heaps[0] == numOfHeaps;
+	for(int i=0; i<numOfHeaps;i++)
+		if(heaps[i] > 0)
+			return 0;
+	return 1;
 }
 void userStep(int *arr, int numOfHeaps, int turn)
 {
+	int selectedHeap, amount;
 	startTurnPrint(arr, numOfHeaps,turn);
 	printGame(arr, numOfHeaps);
+	printf("Your turn: please enter the heap index and the number of removed objects.\n");
+	int readValue = scanf("%d%d", &selectedHeap, &amount);
+	while(readValue != 2 || !checkHeapSelection(arr,numOfHeaps,selectedHeap,amount))
+	{
+		printf("Error: Invalid input.\nPlease enter again the heap index and the number of removed objects.\n");
+		readValue = scanf("%d%d", &selectedHeap, &amount);
+	}
+	printf("You take %d objects from heap %d.\n", amount, selectedHeap);
+	arr[selectedHeap-1] -= amount;
 }
 void computerStep(int *heaps, int numOfHeaps, int turn)
 {
@@ -36,4 +49,13 @@ void computerStep(int *heaps, int numOfHeaps, int turn)
 	}
 	heaps[currentIndex] -= objectsRemoved; //remove of the objects by computer
 	printf("Computer takes %d objects from heap %d.", objectsRemoved, currentIndex+1);
+}
+int checkHeapSelection(int *heaps, int numOfHeaps, int selectedHeap, int amouont)
+{
+	if(selectedHeap < 1 || selectedHeap > numOfHeaps)	
+		return 0;
+	if(heaps[selectedHeap-1] < amouont)
+		return 0;
+
+	return 1;
 }
