@@ -7,8 +7,8 @@ int isGameEnded(int *arr, int numOfHeaps)
 }
 void userStep(int *arr, int numOfHeaps, int turn)
 {
-	printf("user step! yayyy %d\n", turn);
-	arr[0] = numOfHeaps;
+	startTurnPrint(arr, numOfHeaps,turn);
+	printGame(arr, numOfHeaps);
 }
 void computerStep(int *arr, int numOfHeaps, int turn)
 {

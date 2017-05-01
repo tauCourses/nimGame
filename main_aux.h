@@ -5,4 +5,7 @@
 
 int init(int *arr);
 void printEnd(int turn);
+void startTurnPrint(int *arr, int numOfHeaps, int turn);
+void printGame(int *arr, int numOfHeaps);
+int getMaximumHeapSize(int *arr, int numOfHeaps);
 #endif

@@ -2,6 +2,7 @@
 #define SP_NIM_HEADER
 
 #include <stdio.h>
+#include "main_aux.h"
 
 
 int isGameEnded(int *arr, int numOfHeaps);
