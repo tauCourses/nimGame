@@ -3,26 +3,21 @@
 #include <stdio.h>
 //#include "SPBufferdet.h"
 
-typedef void (*stepFunction)(int *arr, int numOfHeaps, int turn); //function pointer definition
-
 int main()
 {
-	//stepFunction stepFunctionsArr[] = {userStep, computerStep}; //order matters! second function start!
 	//SP_BUFF_SET();
-	int arr[32];
-	int numOfHeaps = init(arr);
+	int heaps[32];
+	int numOfHeaps = init(heaps);
 	if (numOfHeaps == -1)
 		return -1;
 	int turn = 1;
-
-	userStep(arr,numOfHeaps,4);
-	userStep(arr,numOfHeaps,5);
-	userStep(arr,numOfHeaps,6);/*
 	
-	while(!isGameEnded(arr, numOfHeaps))
+	while(!isGameEnded(heaps, numOfHeaps))
 	{
-		stepFunctionsArr[turn%2](arr,numOfHeaps,turn);
-		turn++;
-	}*/
+		if(turn++ % 2)
+			computerTurn(heaps,numOfHeaps,turn);
+		else
+			userTurn(heaps,numOfHeaps,turn);
+	}
 	printEnd(turn);
 }

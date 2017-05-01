@@ -6,8 +6,8 @@
 
 
 int isGameEnded(int *arr, int numOfHeaps);
-void userStep(int *arr, int numOfHeaps, int turn);
-void computerStep(int *arr, int numOfHeaps, int turn);
+void userTurn(int *arr, int numOfHeaps, int turn);
+void computerTurn(int *arr, int numOfHeaps, int turn);
 int checkHeapSelection(int *heaps, int numOfHeaps, int selectedHeap, int amouont);
 
 #endif

@@ -1,6 +1,5 @@
 #include "sp_nim.h"
 
-
 int isGameEnded(int *arr, int numOfHeaps)
 {
 	for(int i=0; i<numOfHeaps;i++)
@@ -8,7 +7,8 @@ int isGameEnded(int *arr, int numOfHeaps)
 			return 0;
 	return 1;
 }
-void userStep(int *arr, int numOfHeaps, int turn)
+
+void userTurn(int *arr, int numOfHeaps, int turn)
 {
 	int selectedHeap, amount;
 	startTurnPrint(arr, numOfHeaps,turn);
@@ -23,12 +23,14 @@ void userStep(int *arr, int numOfHeaps, int turn)
 	printf("You take %d objects from heap %d.\n", amount, selectedHeap);
 	arr[selectedHeap-1] -= amount;
 }
-void computerStep(int *arr, int numOfHeaps, int turn)
+
+void computerTurn(int *arr, int numOfHeaps, int turn)
 {
 	printf("computer step,  buzz!!! %d\n", turn);
 	arr[0] = numOfHeaps;
 	arr[0] = 7;
 }
+
 int checkHeapSelection(int *heaps, int numOfHeaps, int selectedHeap, int amouont)
 {
 	if(selectedHeap < 1 || selectedHeap > numOfHeaps)	
