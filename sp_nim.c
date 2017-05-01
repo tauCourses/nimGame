@@ -50,11 +50,11 @@ void computerTurn(int *heaps, int numOfHeaps, int turn)
 	printf("Computer takes %d objects from heap %d.\n", objectsRemoved, currentIndex+1);
 }
 
-int checkHeapSelection(int *heaps, int numOfHeaps, int selectedHeap, int amouont)
+int checkHeapSelection(int *heaps, int numOfHeaps, int selectedHeap, int amount)
 {
 	if(selectedHeap < 1 || selectedHeap > numOfHeaps)	
 		return 0;
-	if(heaps[selectedHeap-1] < amouont)
+	if(amount <= 0 || amount > heaps[selectedHeap-1])
 		return 0;
 
 	return 1;
