@@ -6,7 +6,7 @@
 
 int main()
 {
-	SP_BUFF_SET();
+	//SP_BUFF_SET();
 	int heaps[32], turn = 1, numOfHeaps;
 	
 	numOfHeaps = init(heaps);

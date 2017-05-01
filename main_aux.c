@@ -55,6 +55,7 @@ void startTurnPrint(int *heaps, int numOfHeaps, int turn)
 
 void printGame(int *heaps, int numOfHeaps)
 {
+
 	for(int i = getMaximumHeapSize(heaps,numOfHeaps) - 1; i>=0; i--)
 	{
 		for(int j=0;j<numOfHeaps;j++)
