@@ -4,7 +4,7 @@
 
 int isGameEnded(int *heaps, int numOfHeaps)
 {
-	for(int i=0; i<numOfHeaps;i++)
+	for(int i=0; i<numOfHeaps; i++) //loop over all heaps that checks if there's non-empty heap
 		if(heaps[i] > 0)
 			return 0;
 	return 1;
@@ -18,14 +18,14 @@ void userTurn(int *heaps, int numOfHeaps, int turn)
 	printf("Your turn: please enter the heap index and the number of removed objects.\n");
 	fflush(stdout);
 	int readValue = scanf("%d%d", &selectedHeap, &amount);
-	while(readValue != 2 || !checkHeapSelection(heaps,numOfHeaps,selectedHeap,amount))
+	while(readValue != 2 || !checkHeapSelection(heaps,numOfHeaps,selectedHeap,amount))//while input is legal - 2 int's are received
 	{
 		printf("Error: Invalid input.\nPlease enter again the heap index and the number of removed objects.\n");
 		fflush(stdout);
 		readValue = scanf("%d%d", &selectedHeap, &amount);
 	}
 	printf("You take %d objects from heap %d.\n", amount, selectedHeap);
-	heaps[selectedHeap-1] -= amount;
+	heaps[selectedHeap-1] -= amount; //Apply the user's choice
 	fflush(stdout);
 }
 
@@ -39,7 +39,7 @@ void computerTurn(int *heaps, int numOfHeaps, int turn)
 
 	if (nimSum != 0)
 	{
-		while ((heaps[currentIndex]^nimSum) >= heaps[currentIndex]) //if cuurent heap is not a winning heap
+		while ((heaps[currentIndex]^nimSum) >= heaps[currentIndex]) //if current heap is not a winning heap
 			currentIndex++;
 		objectsRemoved = heaps[currentIndex] - (heaps[currentIndex]^nimSum);
 	}

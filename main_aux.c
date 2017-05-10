@@ -1,6 +1,6 @@
 #include "main_aux.h"
 
-int init(int *heaps)
+int init(int *heaps)//initialize the first parameter for begining of the game
 {
 	int numOfHeaps;
 	printf("Enter the number of heaps\n");
@@ -38,7 +38,7 @@ int init(int *heaps)
 	return numOfHeaps;
 }
 
-void printEnd(int turn)
+void printEnd(int turn)//print end message when the game is over
 {
 	if(turn%2)
 		printf("You win!\n");
@@ -47,7 +47,7 @@ void printEnd(int turn)
 	fflush(stdout);
 }
 
-void startTurnPrint(int *heaps, int numOfHeaps, int turn)
+void startTurnPrint(int *heaps, int numOfHeaps, int turn)//prints the current status at the begining of each turn
 {
 	printf("In turn %d heap sizes are:", turn);
 	for(int i=0;i<numOfHeaps;i++)
@@ -72,7 +72,7 @@ void printGame(int *heaps, int numOfHeaps)
 	}
 }
 
-int getMaximumHeapSize(int *heaps, int numOfHeaps)
+int getMaximumHeapSize(int *heaps, int numOfHeaps)//returns the size of the maximal heap
 {
 	int max = heaps[0];
 	for(int i=0; i<numOfHeaps;i++)
